@@ -1,0 +1,118 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+body{
+    background-image: url("img/cccc.jpg");
+    background-size: 100%;
+
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.button-container > div {
+    justify-content: space-around;
+    margin: 100px auto auto 400px;
+
+}
+
+button {
+    padding: 10px 20px;
+    width: 20%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    font-size: larger;
+    font-family: "Noto Kufi Arabic";
+}
+
+.container {
+    max-width: 20%;
+    margin: 0 auto;
+    background-color: #e01313;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    gap: 10px;
+  }
+
+
+
+  .navbar {
+    overflow: hidden;
+  }
+
+
+  .navbar img {
+    height: 4%;
+    width: 4%;
+    margin: 10px;
+    float: left;
+  }
+
+
+
+  .form-popup {
+    align-items: center;
+    direction: rtl;
+    visibility: hidden;
+    position: absolute;
+    left: 370px;
+    top: 80px;
+  }
+
+
+  .form-container {
+    width: 300px;
+    height: auto;
+    padding: 10px;
+    background-color: #CDD214;
+    border: solid 1px;
+    align-items: center;
+    text-align: center;
+  }
+
+  #startButton{
+    width: auto;
+    background-color: #87B61A;
+    border: none;
+    font-size: small;
+    font-weight: bold;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: relative;
+    right: 220px;
+  }
+
+
+  #hideButton{
+    width: auto;
+    background-color: #ff3f20;
+    border: none;
+    font-size: small;
+    float: right;
+    font-weight: bold;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    position: relative;
+    bottom: 45px;
+
+  }
+
+
+  input{
+    margin-bottom: 20px;
+    border-radius: 20px;
+    width: 70%;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }

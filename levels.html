@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Buttons</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <img src="img/maths.png" onclick="location.href='main.html'" alt="شعار" />
+    </div>
+    <div class="button-container">
+        <h1 align="center" id="userHello"></h1>
+        <div><button style="background-color: #ff3f20;" onclick="location.href='tAddition.html'">جمع الآحاد</button></div>
+        <div><button style="background-color: #fec40b;" onclick="location.href='tutorial-subtraction.html'">طرح الآحاد</button></div>
+        <div><button style="background-color: #89B4E7;" onclick="location.href='tAdditionT.html'">جمع العشرات</button></div>
+        <div><button style="background-color: #E35398;" onclick="location.href='quizST.html'">طرح العشرات</button></div>
+        <div><button style="visibility: hidden;"></button></div>
+
+    </div>
+</body>
+
+<script>
+    const storedNames = localStorage.getItem("namesArray");
+    let name = JSON.parse(storedNames) || [];
+    userName = name[name.length - 1];
+    document.getElementById("userHello").innerHTML = `مرحباً ${userName}`
+</script>
+</html>

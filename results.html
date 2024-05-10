@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+body{
+    background-image: url("img/cccc.jpg");
+    background-size: cover;
+}
+table {
+    border-collapse: collapse;
+    width: 60%;
+    margin-top: 80px;
+    background-color: none; /* Light beige background color */
+    border: none; /* Light grayish border color */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);  Subtle shadow effect */
+    border-radius: 5px; /* Rounded corners for a modern look */
+    border-collapse: separate;
+    border-spacing:0px 30px;
+
+}
+
+th,
+td {
+    padding: 5px;
+    background-color: #e0e0e0; /* Light grayish header background */
+    text-align: center;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: bold;
+    color: #333333; /* Dark gray text color for readability */
+    margin-bottom: 10px;
+}
+
+th {
+    background-color: #87b61a; /* Light grayish header background */
+    margin-bottom: 10px;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8f8; /* Alternate row colors for better readability */
+    margin-bottom: 10px;
+}
+
+
+
+.navbar {
+    overflow: hidden;
+  }
+
+
+  .navbar img {
+    height: 4%;
+    width: 4%;
+    margin: 10px;
+    float: left;
+  }
+
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table</title>
+</head>
+<body>
+    <div class="navbar">
+        <img src="img/maths.png" onclick="location.href='main.html'" alt="شعار" />
+    <table>
+        <thead>
+            <tr>
+                <th style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: #749c15;">المجموع</th>
+                <th>طرح العشرات</th>
+                <th>جمع العشرات</th>
+                <th>طرح الآحاد</th>
+                <th>جمع الآحاد</th>
+                <th>الاسم</th>
+                <th style="border-top-right-radius: 20px; border-bottom-right-radius: 20px; background-color: #749c15;">المركز</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+        </tbody>
+    </table>
+</body>
+
+<script>
+
+    const tableBody = document.getElementById('tableBody');
+
+
+
+    String.prototype.toIndiaDigits= function(){
+    var id= ['۰','۱','۲','۳','٤','٥','٦','۷','۸','۹'];
+    return this.replace(/[0-9]/g, function(w){
+     return id[+w]
+    });
+   }
+
+
+    
+
+    function dataShow(){
+
+        const storedSumOnesRes = localStorage.getItem("sumOnesArray");
+        let sumOnesRes = JSON.parse(storedSumOnesRes) || [];
+
+        const storedSubTensRes = localStorage.getItem("subTensArray");
+        let subTensRes = JSON.parse(storedSubTensRes) || [];
+
+        const storedSubOnesRes = localStorage.getItem("subOnesArray");
+        let subOnesRes = JSON.parse(storedSubOnesRes) || [];
+
+        const storedSumTensRes = localStorage.getItem("sumTensArray");
+        let sumTensRes = JSON.parse(storedSumTensRes) || [];
+
+        const storedNames = localStorage.getItem("namesArray");
+        let name = JSON.parse(storedNames) || [];
+
+        let res = [];    
+        
+        for(let i = 0; i < name.length; i++){
+            let r = sumOnesRes[i] + subOnesRes[i] + sumTensRes[i] + subTensRes[i];
+            res.push(r);
+        }
+
+        let resSort = res.toSorted(function(a, b){return b - a});
+
+
+        var resultLength = name.length;
+
+        for(let i = 0; i < resultLength; i++){
+           let valueIndex = res.findIndex((element) => {return element == resSort[0];});
+           let userArray = [`40 /${res[valueIndex]}`.toIndiaDigits(), `10/${subTensRes[valueIndex]}`.toIndiaDigits(), `10/${sumTensRes[valueIndex]}`.toIndiaDigits(),
+                        `10/${subOnesRes[valueIndex]}`.toIndiaDigits(), `10/${sumOnesRes[valueIndex]}`.toIndiaDigits(),
+                        name[valueIndex]];
+            addRow(userArray);
+            console.log(valueIndex)
+
+            
+            name.splice(valueIndex, 1);
+            res.splice(valueIndex, 1);
+            subTensRes.splice(valueIndex, 1);
+            sumTensRes.splice(valueIndex, 1);
+            subOnesRes.splice(valueIndex, 1);
+            sumOnesRes.splice(valueIndex, 1);
+
+            resSort.shift();
+        }
+
+
+    }
+
+
+
+    var rankCounter = 1;
+
+    function addRow(arr) {
+      const newRow = document.createElement('tr');
+      arr.push(String(rankCounter).toIndiaDigits());
+      for (let i = 0; i < arr.length; i++) {
+
+        const newCell = document.createElement('td');
+
+        if(i == 0){
+            newCell.setAttribute("style", "border-top-left-radius: 20px; border-bottom-left-radius: 20px; background-color: #C8C8C8;");
+        }
+        else if(i == 6){
+            newCell.setAttribute("style", "border-top-right-radius: 20px; border-bottom-right-radius: 20px; background-color: #C8C8C8;");
+        }
+
+
+        newCell.innerHTML = arr[i];
+        newRow.appendChild(newCell);
+      }
+      tableBody.appendChild(newRow);
+
+      rankCounter++;
+    }
+
+
+    dataShow();
+
+    </script>
+</html>

@@ -1,0 +1,152 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+body{
+    background-image: url("img/cccc.jpg");
+    background-size: cover;
+
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+
+
+#quiz-container {
+
+    text-align: center;
+    max-width: 500px;
+    margin: 100px 300px;
+    padding: 20px;
+    border-radius: 5px;
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+    gap: 10px;
+    position: relative;
+}
+
+#questions {
+    margin-bottom: 20px;
+}
+
+.question {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+#submit-btn, #restart-btn {
+    padding: 10px 20px;
+    background-color: #a51313;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#result-container {
+    text-align: center;
+    margin: 50px auto;
+}
+
+#score {
+    font-weight: bold;
+}
+
+
+#quiz-container > button {
+    background-color: #3498db; /* Adjust to your preferred color */
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    width: 20%;
+
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+  }
+  
+  button:hover {
+    background-color: #2980b9; /* Slight color change on hover */
+  }
+  
+
+.form-popup {
+    display: none;
+    position: absolute;
+    left: 550px;
+    top: 450px;
+  }
+
+
+  .form-container {
+    max-width: 400px;
+    padding: 10px;
+    background-color: None ;
+    align-items: center;
+    text-align: center;
+  }
+
+  #form-container > button{
+    width: 50%;
+    padding: 10px 20px; 
+    background-color: #CDD415;
+    border: none;
+
+    font-size: large;
+    font-weight: bold;
+    font-family: "Noto Kufi Arabic", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    
+  }
+
+  #LButton{
+    margin-bottom: 10px;
+  }
+  
+
+  #next{
+    position: absolute;
+    top: 380px;
+    left: 70px;
+    visibility: hidden;
+  }
+
+
+  /* equation organizing as vertical*/
+
+  .equation.stacked {
+    display: inline-block;
+
+    font-size: xx-large;
+  }
+  
+  .equation.stacked .number {
+    display: block;
+    margin-left: 1em; /* space for the operator */
+    text-align: right;
+  }
+  
+  .equation.stacked .operator {
+    float: left;
+  }
+  
+  .equation.stacked .equals {
+    display: block;
+    height: 0;
+    border-bottom: solid 1px black;
+    overflow: hidden;
+  }
+  

@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+.option {
+  margin: 10px auto;
+  padding: 10px;
+  border: 1px solid black;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+.option {
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid black;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 1s;
+        }
+        .correct {
+            background-color: lightgreen;
+        }
+        .incorrect {
+            background-color: lightcoral;
+        }
+body {
+  display: flex; 
+  text-align: center;
+  justify-content: center; 
+  align-items: center; 
+  min-height: 100vh; 
+  margin: 0; 
+  margin-top: -200px;
+
+  background-image: url("img/cccc.jpg");
+  background-size: 100%;
+
+  font-family: "Noto Kufi Arabic", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.container {
+  position: relative; /* Keep the relative positioning */
+  width: 500px; /* Your set width */
+  height: 300px; /* Your set height */
+  /* Removed unnecessary styles for centering */
+}
+
+#rectangle2 {
+  height: 250px;
+  width: 60px;
+  border: 5px solid rgb(255, 0, 0);
+  opacity: 0; /* Start with rectangle2 being invisible */
+  position: absolute; /* Positioning method */
+  top: 50px; /* Position from the top of the container */
+  right: 212px; /* Position from the right of the container */
+  animation: appear 5s forwards; /* Animation to make the rectangle appear */
+  animation-delay: 5s; /* Delay the animation by 5 seconds */
+  animation-iteration-count: 1;
+}
+#rectangle {
+  height: 250px;
+  width: 60px;
+  border: 5px solid rgb(255, 0, 0);
+  animation: fadeout 5s alternate-reverse; /* Animation will last for 5 seconds */
+  position: absolute; /* Positioning method */
+  top: 50px; /* Position from the top of the container */
+  right: 134px; /* Position from the left of the container */
+  animation-iteration-count: 1;
+}
+@keyframes fadeout {
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+@keyframes appear {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.number {
+  position: absolute;
+  font-size: 48px;
+  font-weight: bold;
+  opacity: 0;
+}
+#number5 {
+  bottom: -100px;
+  right: 159px; /* Align with the bottom of rectangle */
+  animation: showNumber 2s forwards; /* Show the number when rectangle animation ends */
+  animation-delay: 5s; /* Delay to match the end of rectangle animation */
+}
+#number7 {
+  bottom: -100px;
+  right: 230px; /* Align with the bottom of rectangle2 */
+  animation: showNumber 2s forwards; /* Show the number when rectangle2 appears */
+  animation-delay: 8s; /* Delay to match the appearance of rectangle2 */
+}
+@keyframes showNumber {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+/* Add styles for the image to ensure it fits the container */
+.image {
+  width: 100%;
+  height: auto;
+}
+
+
+button {
+    background-color: #3498db; /* Adjust to your preferred color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    top: 530px;
+    left: 70px;
+    visibility: hidden;
+    width: 20%;
+  }
+  
+  button:hover {
+    background-color: #2980b9; /* Slight color change on hover */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <img src="https://i.ibb.co/cQt9WBs/Screenshot-2024-04-22-000130.png" class="image" alt="Descriptive Image Alt Text">
+  <div id="rectangle"></div>
+  <div id="rectangle2"></div>
+  <div id="number5" class="number">5</div>
+  <div id="number7" class="number">7</div>
+  <p style="margin-top: 50px;"> كم ناتج ٣٣ + ٤٢؟</p>
+  <div class="option" onclick="checkAnswer(this, false)">٧٤</div>
+  <div class="option" onclick="checkAnswer(this, true)">٧٥</div>
+  <div class="option" onclick="checkAnswer(this, false)">٥٤</div>
+</div>
+<button id="start" onclick="location.href='quizOT.html'">ابدأ</button>
+<script>
+
+    function checkAnswer(element, isCorrect) {
+        if (isCorrect) {
+            element.className = 'option correct';
+            alert('أحسنت!');
+            document.getElementById("start").style.visibility = "visible";
+        } else {
+            element.className = 'option incorrect';
+            alert('أخطأت! حاول مجدداً');
+        }
+    }
+</script>
+</body>
+</html>

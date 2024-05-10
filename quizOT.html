@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Quiz</title>
+    <link rel="stylesheet" href="quizs.css">
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>جمع الآحاد والعشرات</h1>
+        <span class="equation stacked">
+            <span id ="num1" class="number"></span>
+            <span id ="OP" class="operator"></span>
+            <span id ="num2" class="number"></span>
+            <span id ="eq" class="equals">=</span>
+        </span>
+        <div id="questions"></div>
+        <button id = "C1" title = "firstOption" onclick="isCorrect(choice = 'C1')"></button>
+        <button id = "C2" title = "SeconfOption" onclick="isCorrect(choice = 'C2')"></button>
+        <button id = "C3" title = "ThirdOption" onclick="isCorrect(choice = 'C3')"></button>
+        <h2 id = "count"></h2>
+        <button id = "next" onclick="next()">التالي</button>
+    </div>
+
+
+    <div class="form-popup" id="myForm">
+        <form class="form-container" id = "form-container" >
+            <h4 style="font-size: large;" id = "score"></h4>
+            <button type="button" id = "LButton" onclick="location.href='levels.html'">المستويات</button>
+            <button type="button" id = "RButton" onclick="location.href='quizOT.html'">إعادة</button>
+        </form>
+    </div>
+    <script src="scriptOT.js"></script>
+</body>
+</html>

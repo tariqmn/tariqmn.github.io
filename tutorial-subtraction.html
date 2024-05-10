@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <title>Addition Tutorial</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap');
+
+
+        body {
+            text-align: center;
+            background-image: url("img/cccc.jpg");
+            background-size: 100%;
+
+            font-family: "Noto Kufi Arabic", sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        .option {
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid black;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 1s;
+        }
+        .correct {
+            background-color: lightgreen;
+        }
+        .incorrect {
+            background-color: lightcoral;
+        }
+        .apple {
+            width: 100px;
+            transition: transform 1s ease-in;
+            animation: move 2s ease-in;
+            animation-fill-mode: forwards;
+            vertical-align: middle;
+            display: inline-block; 
+            margin: auto;
+        }
+        .applestill {
+            width: 100px;
+            animation-fill-mode: forwards;
+            vertical-align: middle;
+            display: inline-block;
+            margin: auto;
+            margin-top: -8px;
+        }
+
+        @keyframes move {
+            100%{
+                opacity: 0;
+            }
+        }
+
+        button {
+            background-color: #3498db; /* Adjust to your preferred color */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 530px;
+            left: 70px;
+            visibility: hidden;
+            width: 20%;
+        }
+        
+        button:hover {
+            background-color: #2980b9; /* Slight color change on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>استذكار طرح الآحاد</h1>
+    <img class="apple" id="apple1" alt="Apple1">
+    <img class="applestill" id="apple2" alt="Apple2">
+    <p style="margin-top: 50px;">كم ناتج ٣ - ٢؟</p>
+    <div class="option" onclick="checkAnswer(this, false)">٤</div>
+    <div class="option" onclick="checkAnswer(this, true)">۱</div>
+    <div class="option" onclick="checkAnswer(this, false)">٢</div>
+    <button id="start" onclick="location.href='quizSO.html'">ابدأ</button>
+    <script>
+        var apple3ImageUrl = 'https://i.ibb.co/XDQ81Vc/2apples.png';
+        var apple2ImageUrl = 'https://i.ibb.co/Db8gchP/1apple.png';
+        document.getElementById('apple1').src = apple3ImageUrl;
+        document.getElementById('apple2').src = apple2ImageUrl;
+
+        function checkAnswer(element, isCorrect) {
+            if (isCorrect) {
+                element.className = 'option correct';
+                alert('أحسنت!');
+                document.getElementById("start").style.visibility = "visible";
+            } else {
+                element.className = 'option incorrect';
+                alert('أخطأت! حاول مجدداً');
+            }
+        }
+    </script>
+</body>
+</html>
